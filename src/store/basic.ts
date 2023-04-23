@@ -13,8 +13,6 @@ export const useBasicStore = defineStore('basic', {
       allRoutes: [] as RouterTypes,
       buttonCodes: [],
       filterAsyncRoutes: [],
-      roles: [] as Array<string>,
-      codes: [] as Array<number>,
       //keep-alive
       cachedViews: [] as Array<string>,
       cachedViewsDeep: [] as Array<string>,
@@ -39,11 +37,9 @@ export const useBasicStore = defineStore('basic', {
         state.allRoutes = constantRoutes.concat(routes)
       })
     },
-    setUserInfo({ userInfo, roles, codes }) {
+    setUserInfo(userInfo: any) {
       const { username, avatar } = userInfo
       this.$patch((state) => {
-        state.roles = roles
-        state.codes = codes
         state.getUserInfo = true
         state.userInfo.username = username
         state.userInfo.avatar = avatar
@@ -52,8 +48,6 @@ export const useBasicStore = defineStore('basic', {
     resetState() {
       this.$patch((state) => {
         state.token = '' //reset token
-        state.roles = []
-        state.codes = []
         //reset router
         state.allRoutes = []
         state.buttonCodes = []

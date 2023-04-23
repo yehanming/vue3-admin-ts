@@ -75,6 +75,32 @@ export const constantRoutes: RouterTypes = [
   },
 
   {
+    path: '/order-list',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/order-list/index.vue'),
+        name: 'OrderList',
+        meta: { title: 'Order List', icon: 'example' }
+      }
+    ]
+  },
+
+  {
+    path: '/user-list',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/user-list/index.vue'),
+        name: 'UserList',
+        meta: { title: 'User List', icon: 'example' }
+      }
+    ]
+  },
+
+  {
     path: '/error-log',
     component: Layout,
     meta: { title: 'Error Log', icon: 'eye' },

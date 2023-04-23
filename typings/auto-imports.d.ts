@@ -2,6 +2,7 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const apiOrderList: typeof import('../src/api/order')['apiOrderList']
   const axiosReq: typeof import('../src/utils/axios-req')['default']
   const bus: typeof import('../src/utils/bus')['default']
   const buttonCodes: typeof import('../src/directives/button-codes')['default']
@@ -100,6 +101,7 @@ declare global {
   const useTable: typeof import('../src/hooks/use-table')['useTable']
   const useTagsViewStore: typeof import('../src/store/tags-view')['useTagsViewStore']
   const userInfoReq: typeof import('../src/api/user')['userInfoReq']
+  const userListReq: typeof import('../src/api/user')['userListReq']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']

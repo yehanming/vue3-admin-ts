@@ -25,11 +25,11 @@ router.beforeEach(async (to) => {
       //2.判断是否获取用户信息
       if (!basicStore.getUserInfo) {
         try {
-          const userData = await userInfoReq()
+          const userInfo = await userInfoReq()
           //3.动态路由权限筛选
-          filterAsyncRouter(userData)
+          filterAsyncRouter({ "menuList": [], "roles": null, "codes": null })
           //4.保存用户信息到store
-          basicStore.setUserInfo(userData)
+          basicStore.setUserInfo(userInfo)
           //5.再次执行路由跳转
           return { ...to, replace: true }
         } catch (e) {

@@ -17,7 +17,7 @@ service.interceptors.request.use(
       })
     })
     //设置token到header
-    req.headers['AUTHORIZE_TOKEN'] = token
+    req.headers['authorization'] = token
     //如果req.method给get 请求参数设置为 ?name=xxx
     // @ts-ignore
     if ('get'.includes(req.method?.toLowerCase())) req.params = req.data
@@ -46,6 +46,10 @@ service.interceptors.response.use(
   (res) => {
     if (loadingInstance) {
       loadingInstance && loadingInstance.close()
+    }
+    
+    if (res.headers['authorization']) {
+      useBasicStore().setToken(res.headers['authorization'])
     }
 
     //download file

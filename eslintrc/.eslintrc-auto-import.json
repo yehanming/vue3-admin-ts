@@ -1,6 +1,7 @@
 {
   "globals": {
     "EffectScope": true,
+    "apiOrderList": true,
     "axiosReq": true,
     "bus": true,
     "buttonCodes": true,
@@ -99,6 +100,7 @@
     "useTable": true,
     "useTagsViewStore": true,
     "userInfoReq": true,
+    "userListReq": true,
     "watch": true,
     "watchEffect": true,
     "watchPostEffect": true,

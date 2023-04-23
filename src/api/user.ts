@@ -3,9 +3,23 @@ import axiosReq from '@/utils/axios-req'
 export const userInfoReq = (): Promise<any> => {
   return new Promise((resolve) => {
     const reqConfig = {
-      url: '/basis-func/user/getUserInfo',
+      url: '/api/v1/sys/userInfo',
       params: { plateFormId: 2 },
-      method: 'post'
+      method: 'get'
+    }
+    axiosReq(reqConfig).then(({ data }) => {
+      resolve(data)
+    })
+  })
+}
+
+// 获取c用户信列表
+export const userListReq = (param: PaginationReq): Promise<any> => {
+  return new Promise((resolve) => {
+    const reqConfig = {
+      url: '/api/v1/sys/sysUser',
+      data: param,
+      method: 'get'
     }
     axiosReq(reqConfig).then(({ data }) => {
       resolve(data)
@@ -16,8 +30,8 @@ export const userInfoReq = (): Promise<any> => {
 //登录
 export const loginReq = (subForm) => {
   return axiosReq({
-    url: '/basis-func/user/loginValid',
-    params: subForm,
+    url: '/api/v1/admin/login',
+    data: subForm,
     method: 'post'
   })
 }

@@ -22,7 +22,7 @@ interface menuRow {
   code: number
   children: RouterTypes
 }
-export const filterAsyncRoutesByMenuList = (menuList) => {
+export const filterAsyncRoutesByMenuList = (menuList: Array<menuRow>) => {
   const filterRouter: RouterTypes = []
   menuList.forEach((route: menuRow) => {
     //button permission
@@ -126,7 +126,7 @@ export function filterAsyncRouterByCodes(codesRoutes, codes) {
   })
   return filterRouter
 }
-function hasCodePermission(codes, routeItem) {
+function hasCodePermission(codes: any, routeItem: any) {
   if (routeItem.meta?.code) {
     return codes.includes(routeItem.meta.code) || routeItem.hidden
   } else {

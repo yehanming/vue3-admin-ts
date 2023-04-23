@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./../src/icons/SvgIcon.vue')['default']
+    Table: typeof import('./../src/components/Table.vue')['default']
     TestUnit: typeof import('./../src/components/TestUnit.vue')['default']
   }
 }

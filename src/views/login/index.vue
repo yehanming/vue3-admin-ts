@@ -5,12 +5,12 @@
       <div class="title-container">
         <h3 class="title text-center">{{ settings.title }}</h3>
       </div>
-      <el-form-item prop="keyword" :rules="formRules.isNotNull('usename不能为空')">
+      <el-form-item prop="username" :rules="formRules.isNotNull('usename不能为空')">
         <div class="rowSC">
           <span class="svg-container">
             <svg-icon icon-class="user" />
           </span>
-          <el-input v-model="subForm.keyword" placeholder="用户名(admin)" />
+          <el-input v-model="subForm.username" placeholder="用户名(admin)" />
           <!--占位-->
           <div class="show-pwd" />
         </div>
@@ -56,7 +56,7 @@ const { settings } = useBasicStore()
 const formRules = useElement().formRules
 //form
 const subForm = reactive({
-  keyword: 'panda',
+  username: 'admin',
   password: '123456'
 })
 const state = reactive({
@@ -104,7 +104,7 @@ const loginFunc = () => {
   loginReq(subForm)
     .then(({ data }) => {
       elMessage('登录成功')
-      basicStore.setToken(data?.jwtToken)
+      
       router.push('/')
     })
     .catch((err) => {
